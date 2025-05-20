@@ -228,12 +228,7 @@ export class ReadWriteFactory extends ReadFactory {
       tokenURI: params.tokenURI,
     };
 
-    const initialPrice = BigInt(
-      TickMath.getSqrtRatioAtTick(startTick).toString()
-    );
-
     const dopplerParams: DopplerData = {
-      initialPrice,
       minimumProceeds: params.minProceeds,
       maximumProceeds: params.maxProceeds,
       startingTime: BigInt(startTime),
@@ -319,7 +314,6 @@ export class ReadWriteFactory extends ReadFactory {
       params.numeraire !== '0x0000000000000000000000000000000000000000';
 
     const {
-      initialPrice,
       minimumProceeds,
       maximumProceeds,
       startingTime,
@@ -335,7 +329,6 @@ export class ReadWriteFactory extends ReadFactory {
 
     const poolInitializerData = encodeAbiParameters(
       [
-        { type: 'uint160' },
         { type: 'uint256' },
         { type: 'uint256' },
         { type: 'uint256' },
@@ -350,7 +343,6 @@ export class ReadWriteFactory extends ReadFactory {
         { type: 'int24' },
       ],
       [
-        initialPrice,
         minimumProceeds,
         maximumProceeds,
         startingTime,
