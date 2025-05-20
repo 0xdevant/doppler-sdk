@@ -74,12 +74,7 @@ export function buildConfig(
     tokenURI: params.tokenURI,
   };
 
-  const initialPrice = BigInt(
-    TickMath.getSqrtRatioAtTick(startTick).toString()
-  );
-
   const dopplerParams: DopplerData = {
-    initialPrice,
     minimumProceeds: params.minProceeds,
     maximumProceeds: params.maxProceeds,
     startingTime: BigInt(startTime),
